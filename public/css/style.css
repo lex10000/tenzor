@@ -9,16 +9,14 @@
 body {
     max-width: 900px;
     margin: 0 auto;
-    margin-top: 20px;
-}
-header {
+    margin-top: 25px;
     text-align: center;
 }
+
 .wrapper {
     padding-top: 40px;
 }
 .wrapper p {
-    text-align: center;
     font-family: sans-serif;
     font-size: 20px;
 }
@@ -41,9 +39,7 @@ header {
     margin-top: 20px;
 }
 .card {
-    width: 33%;
     display: inline-block;
-    text-align: center;
     font-family: sans-serif;
     margin-top: 50px;
 }
