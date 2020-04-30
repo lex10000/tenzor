@@ -57,8 +57,11 @@ aside {
 .aside__item {
     padding: 20px 40px;
 }
-.aside__item:hover {
+.aside__item_active {
     background: #DCDCDC;
+}
+.aside__item:hover {
+    background: #8d8d8d;
     cursor: pointer;
 
 }
