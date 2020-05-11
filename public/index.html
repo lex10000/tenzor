@@ -3,6 +3,8 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="initial-scale=1.0">
+   <script src="js/Student.Class.js"></script>
+   <script src="js/student_data.js"></script>
    <link rel="stylesheet" href="css/style.css">
    <title>Занятие 1</title>
 </head>
@@ -13,41 +15,21 @@
          <span>TENZOR SCHOOL</span>
       </div>
    </header>
-   <div class="wrapper">
+   <main class="wrapper">
       <p>Это страница школы Тензор в городе Новосибирск. Здесь я начинаю пробовать писать что-то, помимо
       бекенда. </p>
       <div class="users">
-         <div class="card">
-            <img src="images/ava01.jpg" alt="avatar01">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
-         <div class="card">
-            <img src="images/ava02.jpg" alt="avatar02">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
-         <div class="card">
-            <img src="images/ava03.jpg" alt="avatar03">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
-         <div class="card">
-            <img src="images/ava04.jpg" alt="avatar04">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
-         <div class="card">
-            <img src="images/ava05.jpg" alt="avatar04">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
-         <div class="card">
-            <img src="images/ava06.jpg" alt="avatar06">
-            <p class="surname">Фамилия, имя</p>
-            <p class="universitet">Вуз, курс</p>
-         </div>
       </div>
-   </div>
+      <div class="student_card"></div>
+   </main>
+   <script>
+      if(studentArr.length!==0 && studentArr.length!==undefined) {
+         studentArr.forEach(function (item) {
+            const student = new Student(item);
+            student.appendToDom();
+         })
+      }
+   </script>
 </body>
+
 </html>
