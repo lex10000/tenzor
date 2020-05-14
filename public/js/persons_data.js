@@ -1,11 +1,9 @@
-const studentArr = [
+var studentArr = [
     {
         fullName: 'Alex Ivanov',
         university: 'NSU',
-        course: 2,
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava01.jpg',
-        gender: 'male',
     },
     {
         fullName: 'Galya Ivanova',
@@ -26,7 +24,7 @@ const studentArr = [
 
     },
     {
-        fullName: 'Alex Ivanov',
+        fullName: 'Alsex Ivanov',
         university: 'NSU',
         course: 2,
         birthDate: new Date(2000,1,2),
@@ -44,12 +42,32 @@ const studentArr = [
 
     },
     {
-        fullName: 'Alex Ivanov',
-        university: 'male',
+        fullName: 'Alex Ivanossv',
+        university: 'NSU',
         course: 2,
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava06.jpg',
         gender: 'female',
 
+    },
+];
+var teacherArr = [
+    {
+        fullName: 'Sasha Gray',
+        university: 'NSU',
+        birthDate: new Date(2000,1,2),
+        photoUrl: '../images/ava05.jpg',
+        gender: 'female',
+        subject: 'Math',
+        degree: 'B.Sc.'
+    },
+    {
+        fullName: 'Alex Ivasssnov',
+        university: 'NSU',
+        birthDate: new Date(2000,1,2),
+        photoUrl: '../images/ava06.jpg',
+        gender: 'female',
+        subject: 'Phisycs',
+        degree: 'M.S'
     },
 ];

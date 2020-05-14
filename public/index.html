@@ -3,8 +3,14 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="initial-scale=1.0">
+   <script src="js/persons_data.js"></script>
+   <script src="js/Person.Class.js"></script>
    <script src="js/Student.Class.js"></script>
-   <script src="js/student_data.js"></script>
+   <script src="js/Teacher.Class.js"></script>
+   <script src="js/PersonFactory.Class.js"></script>
+   <script src="js/School.Class.js"></script>
+
+
    <link rel="stylesheet" href="css/style.css">
    <title>Занятие 1</title>
 </head>
@@ -23,13 +29,20 @@
       <div class="student_card"></div>
    </main>
    <script>
-      if(studentArr.length!==0 && studentArr.length!==undefined) {
-         studentArr.forEach(function (item) {
-            const student = new Student(item);
-            student.appendToDom();
-         })
-      }
+
+      const school = new School('student');
+      const students = school.getAllPersons();
+      const target = document.getElementsByClassName('users');
+      const target_card = document.getElementsByClassName('student_card');
+      students.forEach(function (item, i){
+            const student = new PersonFactory('student', item);
+            const element = student.appendToDom(target[0]);
+            student.createOpenCardListener(element, target_card[0]);
+      });
    </script>
+<script>
+
+</script>
 </body>
 
 </html>

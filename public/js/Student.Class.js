@@ -2,33 +2,11 @@
 Класс для работы со студентами
 Массив студентов берется из файла student_data.js, который подключается в html документе
  */
-class Student {
+class Student extends Person{
 
     constructor(params) {
-        this.fullName = params['fullName'];
-        this.university = params['university'];
-        this.photoUrl = params['photoUrl'];
-        this.course = params['course'];
-        this.birthDate = params['birthDate'];
-        this.gender = params['gender'];
-    };
-
-    /*
-     Преобразует дату в нужный нам вид. Использовал toLocaleString, чтобы получить русское название месяца
-     */
-    get birthDateStr() {
-        return this.birthDate.toLocaleString('ru', {month: 'long'}) + ', ' + this.birthDate.getDate();
-    };
-
-    set birthDateStr(value) {
-        this.birthDate = value;
-    };
-
-    /*
-    Получает возвраст студента, путем разности текущего года и года рождения студента
-     */
-    get age() {
-        return new Date().getFullYear() - this.birthDate.getFullYear();
+        super(params);
+        this.course = params['course'] || 'Не указан';
     };
 
     /*
@@ -66,31 +44,33 @@ class Student {
     /*
     Метод добавляет блок текущего студента на страницу, после чего запускает добавление обработчика к данному блоку
      */
-    appendToDom() {
+    appendToDom(target) {
         const div = document.createElement('div');
         div.setAttribute('class', 'card');
         div.innerHTML = this.renderStudentItem();
-
-        const target = document.getElementsByClassName('users');
-        const element = target[0].appendChild(div);
-        this.createOpenCardListener(element);// запускает обработчик
+        return target.appendChild(div);
     }
 
     /*
     Данный обработчик добавляет событие клик на блок студента, по которому будет открываться карточка студента
      */
-    createOpenCardListener(element) {
-        const layout = this.renderStudentCard();
+    createOpenCardListener(element, target_card) {
+        const _this = this;
         element.addEventListener('click', function () {
-            const target = document.getElementsByClassName('student_card');
-            target[0].innerHTML = layout;
-            target[0].style.display = 'block';//показываем карточку студента, изменив свойство css
-            const close_btn = document.getElementsByClassName('close');
-            //Здесь мы добавляем еще одно событие клик, на кнопку "закрыть" (на крестик)
-            //крестик рисуется в css
-            close_btn[0].addEventListener('click', function () {
-                target[0].style.display = 'none';//закрываем карточку студента, изменив свойство css
-            })
+            target_card.innerHTML = _this.renderStudentCard();
+            target_card.style.display = 'block';//показываем карточку студента, изменив свойство css
+            _this.createCloseBtnListener(target_card);
+        });
+    }
+
+    /*
+        Здесь мы добавляем еще одно событие клик, на кнопку "закрыть" (на крестик)
+        крестик рисуется в css
+     */
+    createCloseBtnListener(target_card) {
+        const close_btn = document.getElementsByClassName('close');
+        close_btn[0].addEventListener('click', function () {
+            target_card.style.display = 'none';//закрываем карточку студента, изменив свойство css
         })
     }
 }
