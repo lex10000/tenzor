@@ -1,7 +1,14 @@
 class PersonFactory
 {
-    constructor(person_type, params) {
+    constructor(params) {
         this.params = params;
-        return new person_type(this.params);
+    }
+    getStudent()
+    {
+        return new Student(this.params);
+    }
+    getTeacher()
+    {
+        return new Teacher(this.params)
     }
 }

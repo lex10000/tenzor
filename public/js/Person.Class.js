@@ -1,8 +1,8 @@
 class Person {
     constructor(params) {
-        this.fullName = params['fullName'] || '';
+        this.fullName = params['fullName'] || ' ';
         this.birthDateStr = params['birthDate'] || new Date();
-        this.gender = params['gender'] || '';
+        this.gender = params['gender'] || ' ';
         this.university = params['university'] || 'Не указан университет';
         this.photoUrl = params['photoUrl'] || 'Нет фото';
     }

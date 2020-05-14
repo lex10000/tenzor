@@ -2,11 +2,12 @@
 Класс для работы со студентами
 Массив студентов берется из файла student_data.js, который подключается в html документе
  */
-class Student extends Person{
+class Student extends Person {
 
     constructor(params) {
         super(params);
         this.course = params['course'] || 'Не указан';
+        return this;
     };
 
     /*
@@ -44,33 +45,35 @@ class Student extends Person{
     /*
     Метод добавляет блок текущего студента на страницу, после чего запускает добавление обработчика к данному блоку
      */
-    appendToDom(target) {
+    appendToDom(users_class) {
+        const class_name = document.getElementsByClassName(users_class);
         const div = document.createElement('div');
         div.setAttribute('class', 'card');
         div.innerHTML = this.renderStudentItem();
-        return target.appendChild(div);
+        return class_name[0].appendChild(div);
     }
+
+           /*
+           Здесь мы добавляем еще одно событие клик, на кнопку "закрыть" (на крестик)
+           крестик рисуется в css
+        */
+
 
     /*
     Данный обработчик добавляет событие клик на блок студента, по которому будет открываться карточка студента
      */
-    createOpenCardListener(element, target_card) {
-        const _this = this;
+    createOpenCardListener(element, target_card_class) {
+        const layout = this.renderStudentCard();
         element.addEventListener('click', function () {
-            target_card.innerHTML = _this.renderStudentCard();
-            target_card.style.display = 'block';//показываем карточку студента, изменив свойство css
-            _this.createCloseBtnListener(target_card);
-        });
-    }
+            const student_card = document.getElementsByClassName(target_card_class);
+            student_card[0].innerHTML = layout;
+            student_card[0].style.display = 'block';//показываем карточку студента, изменив свойство css
+            const close_btn = document.getElementsByClassName('close');
 
-    /*
-        Здесь мы добавляем еще одно событие клик, на кнопку "закрыть" (на крестик)
-        крестик рисуется в css
-     */
-    createCloseBtnListener(target_card) {
-        const close_btn = document.getElementsByClassName('close');
-        close_btn[0].addEventListener('click', function () {
-            target_card.style.display = 'none';//закрываем карточку студента, изменив свойство css
-        })
+            close_btn[0].addEventListener('click', function () {
+                student_card[0].style.display = 'none';//закрываем карточку студента, изменив свойство css
+                student_card[0].innerHTML = '';
+            })
+        });
     }
 }

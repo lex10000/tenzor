@@ -26,23 +26,17 @@
       бекенда. </p>
       <div class="users">
       </div>
-      <div class="student_card"></div>
+      <div class="student_card">
+      </div>
    </main>
    <script>
-
-      const school = new School('student');
-      const students = school.getAllPersons();
-      const target = document.getElementsByClassName('users');
-      const target_card = document.getElementsByClassName('student_card');
-      students.forEach(function (item, i){
-            const student = new PersonFactory('student', item);
-            const element = student.appendToDom(target[0]);
-            student.createOpenCardListener(element, target_card[0]);
+      const school = new School();
+      const students = school.getAllPersons('student');
+      students.forEach(function (student_params){
+         const student = school.getPerson(student_params);
+         const element = student.appendToDom('users');
+         student.createOpenCardListener(element, 'student_card');
       });
    </script>
-<script>
-
-</script>
 </body>
-
 </html>
