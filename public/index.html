@@ -3,14 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="initial-scale=1.0">
-   <script src="js/persons_data.js"></script>
-   <script src="js/Person.Class.js"></script>
-   <script src="js/Student.Class.js"></script>
-   <script src="js/Teacher.Class.js"></script>
-   <script src="js/PersonFactory.Class.js"></script>
-   <script src="js/School.Class.js"></script>
-
-
+   <script type="module" src="js/app.js"></script>
    <link rel="stylesheet" href="css/style.css">
    <title>Занятие 1</title>
 </head>
@@ -24,19 +17,14 @@
    <main class="wrapper">
       <p>Это страница школы Тензор в городе Новосибирск. Здесь я начинаю пробовать писать что-то, помимо
       бекенда. </p>
-      <div class="users">
-      </div>
-      <div class="student_card">
+      <h2>студенты</h2>
+      <div class="students"></div>
+      <hr>
+      <h2>Преподаватели</h2>
+      <div class="teachers"></div>
+
+      <div class="popup_card">
       </div>
    </main>
-   <script>
-      const school = new School();
-      const students = school.getAllPersons('student');
-      students.forEach(function (student_params){
-         const student = school.getPerson(student_params);
-         const element = student.appendToDom('users');
-         student.createOpenCardListener(element, 'student_card');
-      });
-   </script>
 </body>
 </html>

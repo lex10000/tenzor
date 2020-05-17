@@ -1,51 +1,43 @@
-class School
+
+export class School
 {
     /*
     тип человека (студент - учитель)
      */
     person_type;
 
-    /*
-    данные человека (из массива)
-     */
-    persons_data;
+    students = [];
+    teachers = [];
 
-    /*
-    получить отдельного человека по параметрам
-     */
-    getPerson(params)
-    {
-        const person = new PersonFactory(params);
-        return this.person_type === 'student' ? person.getStudent() : person.getTeacher();
-    }
+    studentRenderData = [];
+    teacherRenderData = [];
 
     /*
     получить всех студентов\учителей
      */
-    getAllPersons(person_type)
-    {
-        this.person_type = person_type;
-        if(this.person_type === 'student') {
-            this.persons_data = studentArr;
+    addPerson(person){
+        const current_person = JSON.parse(JSON.stringify(person));
+        if(current_person.person_type === 'student') {
+            this.students.push(current_person);
         }
-        else if(this.person_type === 'teacher')
-            this.persons_data = teacherArr;
-        return this.persons_data || ' ';
-    }
-    /*
-    следующие методы не успеваю доделать, доделаю к следующему уроку. Вкратце описал эти методы
-     */
-    removePerson(name) {
-        //удалить студента\учителя по имени из массива
+        else if(current_person.person_type === 'teacher') {
+            this.teachers.push(current_person);
+        }
     }
 
-    addPerson(params){
-        //добавить студента\учителя в массив
+    appendStudentsToDom(node_class_name)
+    {
+        const class_name = document.getElementsByClassName(node_class_name);
+        this.studentRenderData.forEach((item) => {
+            class_name[0].appendChild(item);
+        })
     }
-    getOnePerson(name = null){
-        if(name){
-            //найти студента в массиве
-        }
+    appendTeachersToDom(node_class_name)
+    {
+        const class_name = document.getElementsByClassName(node_class_name);
+        this.teacherRenderData.forEach((item) => {
+            class_name[0].appendChild(item);
+        })
     }
 
 }

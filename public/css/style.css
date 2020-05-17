@@ -50,11 +50,11 @@ body {
     height: 200px;
     object-fit: cover;
 }
-.universitet {
+.university {
     color: #a2a2a2;
 }
 
-.student_card{
+.popup_card{
     position: absolute;
     border: 1px solid #8b8b8b;
     border-radius: 10px;
@@ -68,13 +68,13 @@ body {
     width: 500px;
     background-color: rgb(113, 200, 172);
 }
-.student_card>.student_image {
+.popup_card>.student_image {
     border-radius: 20%;
 }
-.student_card>.surname {
+.popup_card>.surname {
     font-size: 30px;
 }
-.student_card>.universitet {
+.popup_card>.universitet {
     color: #a22a05;
 }
 .close {

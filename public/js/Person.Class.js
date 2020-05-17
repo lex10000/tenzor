@@ -1,26 +1,36 @@
-class Person {
-    constructor(params) {
-        this.fullName = params['fullName'] || ' ';
-        this.birthDateStr = params['birthDate'] || new Date();
-        this.gender = params['gender'] || ' ';
-        this.university = params['university'] || 'Не указан университет';
-        this.photoUrl = params['photoUrl'] || 'Нет фото';
+export class Person {
+    params = {};
+
+    validate(params)
+    {
+        this.params['fullName'] = params['fullName'] || ' ';
+        this.params['birthDate'] = params['birthDate'] || new Date();
+        this.params['gender'] = params['gender'] || ' ';
+        this.params['university'] = params['university'] || 'Не указан университет';
+        this.params['photoUrl'] = params['photoUrl'] || 'Нет фото';
+        this.params['person_type'] = params['person_type'];
+        this.params['age'] = this.age;
     }
     /*
     Преобразует дату в нужный нам вид. Использовал toLocaleString, чтобы получить русское название месяца
     */
     get birthDateStr() {
-        return this.birthDate.toLocaleString('ru', {month: 'long'}) + ', ' + this.birthDate.getDate();
+        return this.params['birthDate'].toLocaleString('ru', {month: 'long'}) + ', ' + this.params['birthDate'].getDate();
     };
 
     set birthDateStr(value) {
-        this.birthDate = value;
+        this.params['birthDate'] = value;
     };
 
     /*
     Получает возвраста, путем разности текущего года и года рождения
      */
     get age() {
-        return new Date().getFullYear() - this.birthDate.getFullYear();
+        return new Date().getFullYear() - this.params['birthDate'].getFullYear();
     };
+
+    get params()
+    {
+        return this.params;
+    }
 }

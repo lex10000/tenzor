@@ -1,9 +1,11 @@
-var studentArr = [
+export var studentArr = [
     {
         fullName: 'Alex Ivanov',
         university: 'NSU',
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava01.jpg',
+        person_type: 'student',
+
     },
     {
         fullName: 'Galya Ivanova',
@@ -12,6 +14,7 @@ var studentArr = [
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava02.jpg',
         gender: 'female',
+        person_type: 'student',
 
     },
     {
@@ -21,6 +24,7 @@ var studentArr = [
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava03.jpg',
         gender: 'female',
+        person_type: 'student',
 
     },
     {
@@ -30,6 +34,7 @@ var studentArr = [
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava04.jpg',
         gender: 'male',
+        person_type: 'student',
 
     },
     {
@@ -39,6 +44,7 @@ var studentArr = [
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava05.jpg',
         gender: 'female',
+        person_type: 'student',
 
     },
     {
@@ -48,10 +54,11 @@ var studentArr = [
         birthDate: new Date(2000,1,2),
         photoUrl: '../images/ava06.jpg',
         gender: 'female',
+        person_type: 'student',
 
     },
 ];
-var teacherArr = [
+export var teacherArr = [
     {
         fullName: 'Sasha Gray',
         university: 'NSU',
@@ -59,7 +66,8 @@ var teacherArr = [
         photoUrl: '../images/ava05.jpg',
         gender: 'female',
         subject: 'Math',
-        degree: 'B.Sc.'
+        degree: 'B.Sc.',
+        person_type: 'teacher',
     },
     {
         fullName: 'Alex Ivasssnov',
@@ -68,6 +76,7 @@ var teacherArr = [
         photoUrl: '../images/ava06.jpg',
         gender: 'female',
         subject: 'Phisycs',
-        degree: 'M.S'
+        degree: 'M.S',
+        person_type: 'teacher',
     },
 ];
