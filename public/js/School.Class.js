@@ -1,11 +1,6 @@
 
 export class School
 {
-    /*
-    тип человека (студент - учитель)
-     */
-    person_type;
-
     students = [];
     teachers = [];
 
@@ -13,7 +8,7 @@ export class School
     teacherRenderData = [];
 
     /*
-    получить всех студентов\учителей
+        добавить студента\преподавателя в "школу"
      */
     addPerson(person){
         const current_person = JSON.parse(JSON.stringify(person));
@@ -24,7 +19,10 @@ export class School
             this.teachers.push(current_person);
         }
     }
-
+    
+    /*
+       Добавить всех студентов на сайт
+    */
     appendStudentsToDom(node_class_name)
     {
         const class_name = document.getElementsByClassName(node_class_name);
@@ -32,6 +30,10 @@ export class School
             class_name[0].appendChild(item);
         })
     }
+
+    /*
+    Добавить всех преподавателей на сайт
+     */
     appendTeachersToDom(node_class_name)
     {
         const class_name = document.getElementsByClassName(node_class_name);
