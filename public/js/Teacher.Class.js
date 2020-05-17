@@ -28,7 +28,7 @@ export class Teacher extends Person
                 <div class="surname">${item.fullName}</div>
                 <div class="universitet">${item.university}, ${item.course} курс</div>
                 <div class="birthday">${gender} : ${item.birthDateStr}. ${item.age} лет</div>
-                
+               
             `;
         return content;
 
@@ -38,9 +38,7 @@ export class Teacher extends Person
             const card = document.getElementsByClassName(target_card_class);
             card[0].innerHTML = this.renderTeacherCard(item);
             card[0].style.display = 'block';//показываем карточку студента, изменив свойство css
-            super.createCloseBtnListener();
-
+            super.createCloseBtnListener(card);
         });
     }
-
 }
