@@ -33,4 +33,13 @@ export class Person {
     {
         return this.params;
     }
+
+    createCloseBtnListener(card)
+    {
+        const close_btn = document.getElementsByClassName('close');
+        close_btn[0].addEventListener('click', function () {
+            card[0].style.display = 'none';//закрываем карточку студента, изменив свойство css
+            card[0].innerHTML = '';
+        });
+    }
 }

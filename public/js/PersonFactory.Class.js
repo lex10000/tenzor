@@ -50,7 +50,6 @@ export class PersonFactory
             div.innerHTML = this.teacher.renderItem(item);
             this.teacher.createOpenCardListener(div, 'popup_card', item);
         }
-
         return div;
     }
 }

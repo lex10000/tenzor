@@ -52,11 +52,7 @@ export class Student extends Person {
             const card = document.getElementsByClassName(target_card_class);
             card[0].innerHTML = this.renderStudentCard(item);
             card[0].style.display = 'block';//показываем карточку студента, изменив свойство css
-            const close_btn = document.getElementsByClassName('close');
-            close_btn[0].addEventListener('click', function () {
-                card[0].style.display = 'none';//закрываем карточку студента, изменив свойство css
-                card[0].innerHTML = '';
-            })
+            super.createCloseBtnListener(card);
         });
     }
 }
