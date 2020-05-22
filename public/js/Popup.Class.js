@@ -24,6 +24,9 @@ export class Popup extends Component
         if(popup) popup.remove();
     }
 
+    /*
+    После добавления попапа добавим ему ключ (класс), а так же повесим обработчик на закрытие попапа
+     */
     afterMount() {
         let popupClass = this.component.getAttribute('class');
         this.component.setAttribute('class', `${popupClass} ${this.popupKey}`);
