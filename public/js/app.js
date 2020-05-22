@@ -1,32 +1,31 @@
-import {School} from './School.Class.js';
-import {PersonFactory, teacherArr, studentArr} from "./personLib.js";
-// проинициализируем фабрику
-const person = new PersonFactory();
-//проинициализируем школу
-let school = new School();
+import {Header} from "./Header.Class.js";
+import {PersonFactory} from "./PersonFactory.Class.js";
+import {studentArr} from "./persons_data.js";
+import {ComponentFactory} from "./Component.js";
+import {teacherArr} from "./persons_data.js";
 
-//добавить всех студентов из входного массива
-studentArr.forEach((item) => {
-    school.addPerson(person.makeStudenet(item));
+//создаем фабрику компонента (класс описан в Component.js)
+const componentFactory = new ComponentFactory();
+
+//создаем компонент Header, добавляем его на страницу
+const header = componentFactory.create(Header, {
+    title: 'Online school Tenzor',
+    description: 'some text description about school',
+});
+header.mount(document.querySelector('header'), 'afterBegin');
+
+//проходимся по всем студентам, и создаем компонент PersonFactory (фабрика персоны, которая будет создавать
+//нового студента, и возращаем каждого студента на страницу
+
+studentArr.forEach((currentStudent) => {
+    const student = componentFactory.create(PersonFactory, currentStudent);
+    student.mount(document.querySelector('.students'), 'afterBegin', 'card');
 });
 
-//добавить всех преподавателей из входного массива
-teacherArr.forEach((item) => {
-    school.addPerson(person.makeTeacher(item))
-});
+//проходимся по всем преподам, и создаем компонент PersonFactory (фабрика персоны, которая будет создавать
+//нового препода, и возращаем каждого препода на страницу
+teacherArr.forEach((currentTeacher) => {
+    const teacher = componentFactory.create(PersonFactory, currentTeacher);
+    teacher.mount(document.querySelector('.teachers'), 'afterBegin', 'card');
+})
 
-//для каждого добавленного студента сделать рендер его блока для сайта
-school.students.forEach((item) => {
-    const student_data = person.renderPerson(item);
-    school.studentRenderData.push(student_data);
-});
-
-//для каждого добавленного преподавателя сделать рендер его блока для сайта
-school.teachers.forEach((item) => {
-    const teacher_data = person.renderPerson(item);
-    school.teacherRenderData.push(teacher_data);
-});
-
-//добавить всех студентов и преподатваленей на сайт
- school.appendStudentsToDom('students');
- school.appendTeachersToDom('teachers');

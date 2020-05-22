@@ -1,45 +1,43 @@
-export class Person {
-    params = {};
+import { Component } from './Component.js';
+import {Popup} from "./Popup.Class.js";
 
-    validate(params)
+export class Person extends Component{
+
+    constructor(options)
     {
-        this.params['fullName'] = params['fullName'] || ' ';
-        this.params['birthDate'] = params['birthDate'] || new Date();
-        this.params['gender'] = params['gender'] || ' ';
-        this.params['university'] = params['university'] || 'Не указан университет';
-        this.params['photoUrl'] = params['photoUrl'] || 'Нет фото';
-        this.params['person_type'] = params['person_type'];
-        this.params['age'] = this.age;
+        super(options);
+        this.options['fullName'] = options['fullName'] || ' ';
+        this.options['birthDate'] = options['birthDate'] || new Date();
+        this.options['gender'] = options['gender'] || ' ';
+        this.options['university'] = options['university'] || 'Не указан университет';
+        this.options['photoUrl'] = options['photoUrl'] || 'Нет фото';
+        this.options['person_type'] = options['person_type'];
+        this.options['age'] = this.age;
     }
-    /*
-    Преобразует дату в нужный нам вид. Использовал toLocaleString, чтобы получить русское название месяца
-    */
+
     get birthDateStr() {
-        return this.params['birthDate'].toLocaleString('ru', {month: 'long'}) + ', ' + this.params['birthDate'].getDate();
+        return this.options['birthDate'].toLocaleString('ru', {month: 'long'}) + ', ' + this.options['birthDate'].getDate();
     };
 
     set birthDateStr(value) {
-        this.params['birthDate'] = value;
+        this.options['birthDate'] = value;
     };
 
-    /*
-    Получает возвраста, путем разности текущего года и года рождения
-     */
     get age() {
-        return new Date().getFullYear() - this.params['birthDate'].getFullYear();
+        return new Date().getFullYear() - this.options['birthDate'].getFullYear();
     };
 
-    get params()
-    {
-        return this.params;
+    get image_alt() {
+        return this.options['photoUrl'].substring(this.options['photoUrl'].lastIndexOf('/')+1, this.options['photoUrl'].length);
     }
 
-    createCloseBtnListener(card)
-    {
-        const close_btn = document.getElementsByClassName('close');
-        close_btn[0].addEventListener('click', function () {
-            card[0].style.display = 'none';//закрываем карточку студента, изменив свойство css
-            card[0].innerHTML = '';
-        });
+    /*
+    create eventListener to open a popup card by click
+     */
+    afterMount() {
+        this.component.addEventListener('click', () => {
+            const popUp = new Popup(this.options, 'person', this.popupWindow(this.options));
+            popUp.mount(document.body, undefined,'popup_card');
+        })
     }
 }

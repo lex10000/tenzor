@@ -44,13 +44,14 @@ body {
     font-family: sans-serif;
     margin-top: 50px;
 }
-.student_image {
+.card__image {
     border-radius: 50%;
     width: 200px;
     height: 200px;
     object-fit: cover;
 }
-.university {
+
+.card__university {
     color: #a2a2a2;
 }
 
@@ -61,23 +62,29 @@ body {
     -webkit-box-shadow: 0px 0px 12px 3px rgba(48, 50, 50, 0.64);
     -moz-box-shadow:    0px 0px 12px 3px rgba(48, 50, 50, 0.64);
     box-shadow:         0px 0px 12px 3px rgba(48, 50, 50, 0.64);
-    display: none;
     padding: 40px 10px 10px 10px;
     top: 40%;
     left: 40%;
     width: 500px;
     background-color: rgb(113, 200, 172);
 }
-.popup_card>.student_image {
+.popup-card__student_image {
     border-radius: 20%;
 }
-.popup_card>.surname {
+.popup-card__surname {
     font-size: 30px;
 }
-.popup_card>.universitet {
+.popup-card__university {
     color: #a22a05;
 }
-.close {
+.popup-card__image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.popup-card__close {
+    transition: all 0.5s;
     position: absolute;
     right: 32px;
     top: 32px;
@@ -85,10 +92,11 @@ body {
     height: 32px;
     opacity: 0.3;
 }
-.close:hover {
+
+.popup-card__close:hover {
     opacity: 1;
 }
-.close:before, .close:after {
+.popup-card__close:before, .popup-card__close:after {
     position: absolute;
     left: 15px;
     content: ' ';
@@ -96,10 +104,10 @@ body {
     width: 2px;
     background-color: #000000;
 }
-.close:before {
+.popup-card__close:before {
     transform: rotate(45deg);
 }
-.close:after {
+.popup-card__close:after {
     transform: rotate(-45deg);
 }
 
