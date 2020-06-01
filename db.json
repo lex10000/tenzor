@@ -5,7 +5,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate":"24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava01.jpg",
       "gender": "female",
       "person_type": "student"
@@ -15,7 +15,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate": "24.02.1994",
+       "birthDate":"1994-02-24",
       "photoUrl": "../images/ava02.jpg",
       "gender": "female",
       "person_type": "student"
@@ -25,7 +25,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava03.jpg",
       "gender": "female",
       "person_type": "student"
@@ -35,7 +35,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava04.jpg",
       "gender": "female",
       "person_type": "student"
@@ -45,7 +45,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava05.jpg",
       "gender": "female",
       "person_type": "student"
@@ -55,7 +55,7 @@
       "fullName": "Tanya Ivanova",
       "university": "NSU",
       "course": "2",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava06.jpg",
       "gender": "female",
       "person_type": "student"
@@ -66,7 +66,7 @@
       "id" : 1,
       "fullName": "Sasha Gray",
       "university": "NSU",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava06.jpg",
       "gender": "female",
       "subject": "Math",
@@ -77,7 +77,7 @@
       "id" : 2,
       "fullName": "Sasha Gray",
       "university": "NSU",
-      "birthDate": "24.02.1994",
+      "birthDate":"1994-02-24",
       "photoUrl": "../images/ava06.jpg",
       "gender": "female",
       "subject": "Math",

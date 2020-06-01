@@ -7,25 +7,26 @@ export class Person extends Component{
     {
         super(options);
         this.options['fullName'] = options['fullName'] || ' ';
-        this.options['birthDate'] = options['birthDate'] || new Date();
+        this.options['birthDate'] = new Date(options['birthDate']) || new Date();
         this.options['gender'] = options['gender'] || ' ';
         this.options['university'] = options['university'] || 'Не указан университет';
         this.options['photoUrl'] = options['photoUrl'] || 'Нет фото';
         this.options['person_type'] = options['person_type'];
         this.options['age'] = this.age;
+        console.log();
+
     }
-
+    //
     get birthDateStr() {
-        return this.options['birthDate'].toLocaleString('ru', {month: 'long'});
+        return this.options['birthDate'].toLocaleString('ru', {month: 'long'})+ ', ' + this.options['birthDate'].getDate();
     };
-
-    set birthDateStr(value) {
-        this.options['birthDate'] = value;
-    };
+    //
+    // set birthDateStr(value) {
+    //     this.options['birthDate'] = value;
+    // }
 
     get age() {
-        return  new Date().getFullYear() - this.options['birthDate'];
-        // new Date().getFullYear() - this.options['birthDate'].getFullYear();
+        return new Date().getFullYear() - this.options['birthDate'].getFullYear();
     };
 
     get image_alt() {
@@ -36,6 +37,7 @@ export class Person extends Component{
     create eventListener to open a popup card by click
      */
     afterMount() {
+
         this.component.addEventListener('click', () => {
             const popUp = new Popup(this.options, 'person', this.popupWindow(this.options));
             popUp.mount(document.body, undefined,'popup_card');
