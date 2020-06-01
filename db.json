@@ -1,0 +1,88 @@
+{
+  "students": [
+    {
+      "id" : 1,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate":"24.02.1994",
+      "photoUrl": "../images/ava01.jpg",
+      "gender": "female",
+      "person_type": "student"
+    },
+     {
+      "id" : 2,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava02.jpg",
+      "gender": "female",
+      "person_type": "student"
+    },
+    {
+      "id" : 3,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava03.jpg",
+      "gender": "female",
+      "person_type": "student"
+    },
+    {
+      "id" : 4,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava04.jpg",
+      "gender": "female",
+      "person_type": "student"
+    },
+    {
+      "id" : 5,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava05.jpg",
+      "gender": "female",
+      "person_type": "student"
+    },
+    {
+      "id" : 6,
+      "fullName": "Tanya Ivanova",
+      "university": "NSU",
+      "course": "2",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava06.jpg",
+      "gender": "female",
+      "person_type": "student"
+    }
+  ],
+  "teachers" : [
+    {
+      "id" : 1,
+      "fullName": "Sasha Gray",
+      "university": "NSU",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava06.jpg",
+      "gender": "female",
+      "subject": "Math",
+      "degree": "B.Sc.",
+      "person_type": "teacher"
+    },
+    {
+      "id" : 2,
+      "fullName": "Sasha Gray",
+      "university": "NSU",
+      "birthDate": "24.02.1994",
+      "photoUrl": "../images/ava06.jpg",
+      "gender": "female",
+      "subject": "Math",
+      "degree": "B.Sc.",
+      "person_type": "teacher"
+    }
+  ]
+}

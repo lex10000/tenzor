@@ -16,7 +16,7 @@ export class Person extends Component{
     }
 
     get birthDateStr() {
-        return this.options['birthDate'].toLocaleString('ru', {month: 'long'}) + ', ' + this.options['birthDate'].getDate();
+        return this.options['birthDate'].toLocaleString('ru', {month: 'long'});
     };
 
     set birthDateStr(value) {
@@ -24,7 +24,8 @@ export class Person extends Component{
     };
 
     get age() {
-        return new Date().getFullYear() - this.options['birthDate'].getFullYear();
+        return  new Date().getFullYear() - this.options['birthDate'];
+        // new Date().getFullYear() - this.options['birthDate'].getFullYear();
     };
 
     get image_alt() {
