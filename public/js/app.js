@@ -13,8 +13,8 @@ const header = componentFactory.create(Header, {
 });
 header.mount(document.querySelector('header'), 'afterBegin');
 
-//проходимся по всем студентам, и создаем компонент PersonFactory (фабрика персоны, которая будет создавать
-//нового студента, и возращаем каждого студента на страницу
+
+//запрашиваем всех студентов, потом проходимся по каждому, и монитруем на страницу
 
 const dataset = new Dataset('http://localhost:8080/api/');
 const students = dataset.getAllPersons('students')
@@ -25,6 +25,8 @@ const students = dataset.getAllPersons('students')
         }
     })
 
+//запрашиваем всех преподов, но с параметрами, потом проходимся по каждому, и монитруем на страницу
+
 const page = 1;
 const limit = 1;
 const teachers = dataset.getLimitPersons('teachers', page, limit)
@@ -34,8 +36,7 @@ const teachers = dataset.getLimitPersons('teachers', page, limit)
             teacher.mount(document.querySelector('.teachers'), 'afterBegin', 'card');
         }
     })
-//проходимся по всем преподам, и создаем компонент PersonFactory (фабрика персоны, которая будет создавать
-//нового препода, и возращаем каждого препода на страницу
+
 
 
 
