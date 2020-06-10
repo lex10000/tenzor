@@ -13,8 +13,9 @@ class Dataset {
      */
     query(query, options, params) {
         const url = new URL(this.host);
+        let key;
         url.pathname += query;
-        for (const key in params) {
+        for (key in params) {
             url.searchParams.set(key, params[key]);
         }
         return fetch(url, options)
@@ -57,5 +58,3 @@ class Dataset {
         });
     }
 }
-
-export default Dataset;

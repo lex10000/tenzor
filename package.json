@@ -17,8 +17,13 @@
   },
   "homepage": "https://github.com/lex10000/tenzor#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "express": "^4.17.1",
     "json-server": "^0.16.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2"
+  }
 }

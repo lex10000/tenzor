@@ -1,7 +1,7 @@
 import { Component } from './Component.js';
 import {Popup} from "./Popup.Class.js";
 
-export class Person extends Component{
+export class Person extends React.Component{
 
     constructor(options)
     {

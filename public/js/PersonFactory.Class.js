@@ -8,8 +8,6 @@ export class PersonFactory
 {
     constructor(options)
     {
-        console.log(options)
-
         switch (options['person_type']) {
             case 'student' : {
                 return new Student(options);

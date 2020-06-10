@@ -10,18 +10,16 @@ export class Student extends Person {
         this.options['course'] = options['course'] || 'Не указан';
     }
 
-    /*
-        Создает шаблон блока студента
-        @return {string} content - сгенерированный шаблон
-     */
-    render(item) {
-        return  `<img class="card__image" src="${item['photoUrl']}" alt="${this.image_alt}">
-                 <div class="card__surname">${item['fullName']}</div>
-                 <div class="card__university">${item['university']}, ${item['course']} курс</div>`;
+   
+    render() {
+        return (<div>
+            <img className="card__image" src={item['photoUrl']} alt={this.image_alt}/>
+            <div className="card__surname">{item['fullName']}</div>
+            <div className="card__university">{item['university']}, {item['course']} курс</div>
+        </div>);
     }
 
-    popupWindow(item)
-    {
+    popupWindow(item) {
         return `<div class="popup-card__close"></div>
                 <img class="popup-card__image" src="${item.photoUrl}" alt="${this.image_alt}">
                 <div class="popup-card__surname">${item.fullName}</div>
